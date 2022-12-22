@@ -1,3 +1,5 @@
+using MySqlConnector;
+
 namespace BestRestaurantApp.Models {
     public class Restaurant {
         public string RestaurantId {get; set;}

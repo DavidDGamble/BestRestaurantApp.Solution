@@ -1,10 +1,14 @@
-namespace BestRestaurantApp.Models {
+using MySqlConnector;
 
-public class Cuisine {
-        
-        public int CuisineId {get; set;}
-        public string Type {get; set;}
+namespace BestRestaurantApp.Models
+{
 
-        public List <Restaurant> Restaurants {get; set;}
- }
+  public class Cuisine
+  {
+
+    public int CuisineId { get; set; }
+    public string Type { get; set; }
+
+    public List<Restaurant> Restaurants { get; set; }
+  }
 }

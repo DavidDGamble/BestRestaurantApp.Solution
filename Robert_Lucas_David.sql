@@ -41,9 +41,9 @@ CREATE TABLE `restaurants` (
   `Name` varchar(255) DEFAULT NULL,
   `Address` varchar(255) DEFAULT NULL,
   `Rating` varchar(255) DEFAULT NULL,
-  `CatagoryId` int DEFAULT '0',
+  `CuisineId` int DEFAULT '0',
   PRIMARY KEY (`RestaurantId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -55,4 +55,4 @@ CREATE TABLE `restaurants` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-12-21 16:46:03
+-- Dump completed on 2022-12-22 13:03:04

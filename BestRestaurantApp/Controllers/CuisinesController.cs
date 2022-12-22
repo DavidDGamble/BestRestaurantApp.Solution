@@ -41,6 +41,15 @@ namespace BestRestaurantApp.Controllers
       Cuisine thisCuisine = _db.Cuisines
         .Include(cuisine => cuisine.Restaurants) 
         .FirstOrDefault(cuisine => cuisine.CuisineId == id); 
+      List<Restaurant> dbRests = _db.Restaurants.ToList();
+      thisCuisine.Restaurants = new List<Restaurant>{};
+      foreach (Restaurant rest in dbRests)
+      {
+        if (rest.CuisineId == thisCuisine.CuisineId) 
+        {
+          thisCuisine.Restaurants.Add(rest);
+        }
+      }
         return View(thisCuisine);
     }
   }

@@ -1,19 +1,48 @@
 @{
   Layout = "_Layout";
 }
+@using BestRestaurantApp.Models;
 
-<div class="form-group text-center w-25 m-auto">
-  <form action="/restaurants/create" method="post">
-    <label class="form-label" for="name">Restaurant Name</label>
-    <input class="form-control" type="text" name="name" id="name">
-    <br>
-    <label class="form-label" for="address">Address:</label>
-    <input class="form-control" type="text" name="address" id="address">
-    <br>
-    <label class="form-label" for="rating">Rating</label>
-    <input class="form-control" type="text" name="rating" id="rating">
-    <br>
- 
-    <button class="form-control btn btn-danger" type="submit">Add A Restaurant</button>
-  </form>
+<div class="row">
+  <div class="col-8">
+    <h1 class="text-center">@Model.Type</h1>
+    <div class="row">
+      @foreach (Restaurant rest in Model.Restaurants)
+      {        
+        <div class="col-12">
+          <div class="card text-center">
+            <div class="card-body">
+              <h3 class="card-title">
+                Name: @rest.Name
+              </h3>
+              <p class="card-text">
+                Address: @rest.Address
+              </p>
+              <p class="card-text">
+                Rating: @rest.Rating
+              </p>
+              <a class="button btn btn-danger w-25" href="/restaurants/@rest.RestaurantId/delete">Delete</a>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+  <div class="col-4 stick">
+    <div class="form-group">
+      <form action="/restaurants/@Model.CuisineId/create" method="post">
+        <label class="form-label" for="Name">Restaurant Name</label>
+        <input class="form-control" type="text" name="Name" id="Name">
+        <br>
+        <label class="form-label" for="Address">Address:</label>
+        <input class="form-control" type="text" name="Address" id="Address">
+        <br>
+        <label class="form-label" for="Rating">Rating</label>
+        <input class="form-control" type="text" name="Rating" id="Rating">
+        <br>
+        <button class="form-control btn btn-warning" type="submit">Add A Restaurant</button>
+        <a class="button btn btn-info" href="/Cuisines">See all cuisines</a>
+      </form>
+    </div>
+  </div>
 </div>

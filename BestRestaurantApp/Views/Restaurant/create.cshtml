@@ -1,0 +1,19 @@
+@{
+  Layout = "_Layout";
+}
+
+<div class="form-group text-center w-25 m-auto">
+  <form action="/restaurants/create" method="post">
+    <label class="form-label" for="name">Restaurant Name</label>
+    <input class="form-control" type="text" name="name" id="name">
+    <br>
+    <label class="form-label" for="address">Address:</label>
+    <input class="form-control" type="text" name="address" id="address">
+    <br>
+    <label class="form-label" for="rating">Rating</label>
+    <input class="form-control" type="text" name="rating" id="rating">
+    <br>
+ 
+    <button class="form-control btn btn-danger" type="submit">Add A Restaurant</button>
+  </form>
+</div>

@@ -1,0 +1,21 @@
+@{
+  Layout = "_Layout";
+}
+
+<div class="form-group text-center w-25 m-auto">
+  <form action="/cuisines/create" method="post">
+    <label class="form-label" for="Type">Type</label>
+    <input class="form-control" type="text" name="Type" id="Type">
+    <br>
+    <button class="form-control btn btn-light" type="submit">Add Cuisine</button>
+  </form>
+</div>
+
+@* @model BestRestaurantApp.Models.Cuisine
+
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.Type)
+  @Html.TextBoxFor(model => model.Type)
+  <input type="submit" value="Add Cuisine"/>
+} *@

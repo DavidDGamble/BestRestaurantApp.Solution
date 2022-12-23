@@ -1,0 +1,36 @@
+@{
+  Layout = "_Layout";
+}
+@using BestRestaurantApp.Models
+
+@foreach (Restaurant rest in Model)
+{
+
+  <div class="card text-center">
+  <div class="card-body">
+      @foreach (Cuisine cuisine in @ViewBag.Cuisines)
+      {
+        if (@rest.CuisineId == cuisine.CuisineId)
+        {
+    <h1 class="card=-title">
+          Cuisine: @cuisine.Type
+    </h1>
+        }
+      }
+    <h3 class="card-title">
+      Name: @rest.Name
+    </h3>
+    <p class="card-text">
+      Address: @rest.Address
+    </p>
+    <p class="card-text">
+      Rating: @rest.Rating
+    </p>
+    <a class="button btn btn-danger w-25" href="/restaurants/@rest.RestaurantId/delete">Delete</a>
+  </div>
+</div>
+
+}
+<div class="w-25 m-auto text-center">
+  <a class="button btn btn-info mt-5" href="/Cuisines">See all cuisines</a>
+</div>

@@ -1,6 +1,10 @@
 @{
   Layout = "_Layout";
 }
-@using BestRestaurantApp.Models;
 
-<h3>@Model.Name<h3>
+<h2 style="text-align: center;">Are you sure you want to delete <span id="delete">@Model.Name</span>?<h2>
+
+    <form class="text-center" action="/restaurants/@Model.RestaurantId/delete/confirm" method="post">
+      <button class="btn btn-danger" type="submit">Delete Restaurant</button>
+      <a class="btn btn-warning" href="/Cuisines/Details/@Model.CuisineId">Cancel</a>
+    </form>

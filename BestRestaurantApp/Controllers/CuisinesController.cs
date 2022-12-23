@@ -28,12 +28,33 @@ namespace BestRestaurantApp.Controllers
     [HttpPost]
     public ActionResult Create(Cuisine cuisine)
     {
-      // Cuisine newC = new Cuisine();
-      // newC.Type = type;
-      // newC.setId();
       _db.Add(cuisine);
       _db.SaveChanges();
       return RedirectToAction("Index");
+    }
+
+    [HttpGet("/Cuisines/{id}/delete")]
+    public ActionResult Delete(int id)
+    {
+      Cuisine thisCuisine = _db.Cuisines.FirstOrDefault(cuisine => cuisine.CuisineId == id);
+      return View(thisCuisine);
+    }
+
+    [HttpPost("/Cuisines/{id}/delete/confirm")]
+    public ActionResult Confirm(int id)
+    {
+      Cuisine thisCuisine = _db.Cuisines.FirstOrDefault(cuisine => cuisine.CuisineId == id);
+      List<Restaurant> thisRestaurants = _db.Restaurants.ToList();
+      foreach (Restaurant delRest in thisRestaurants)
+      {
+        if (delRest.CuisineId == id)
+        {
+          _db.Restaurants.Remove(delRest);
+        }
+      }
+      _db.Cuisines.Remove(thisCuisine);
+      _db.SaveChanges();
+      return Redirect("/Cuisines/");
     }
 
     public ActionResult Details(int id)
